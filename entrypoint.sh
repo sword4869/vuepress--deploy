@@ -3,12 +3,11 @@
 set -e
 
 # python3
-echo "==> [coarse]show file directory architecture"
-ls
-echo "==> [fine]show file directory architecture"
-ls -a
 mkdir -p /docs/.vuepress
 echo "" > /docs/.vuepress/config.ts
+echo "==> [fine]show file directory architecture"
+ls -a
+ls /docs/.vuepress
 echo "python3 version: $(python3 -V)"
 echo "repository: $INFO_REPOSITORY"
 python3 /translator.py "$INFO_REPOSITORY"
