@@ -59,6 +59,7 @@ def get_array():
 
 
 def main():
+    print('translator.py path:', os.getcwd())
     owner_repository = sys.argv[1]
     base = "/" + owner_repository.split("/")[-1] + "/"
     plugins = [
