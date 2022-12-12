@@ -3,8 +3,8 @@
 set -e
 
 # python3
-mkdir -p /docs/.vuepress
-echo "" > /docs/.vuepress/config.ts
+mkdir -p ./docs/.vuepress
+echo "" > ./docs/.vuepress/config.ts
 echo "==> [fine]show file directory architecture"
 pwd
 ls -a
