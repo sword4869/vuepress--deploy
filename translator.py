@@ -55,6 +55,8 @@ def get_array():
     tree_dir(path_dest, result)
     tree_empty(result)
 
+    result = [ i.encode('utf-8').decode('unicode_escape') for i in result]
+
     return result
 
 
