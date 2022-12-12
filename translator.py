@@ -55,8 +55,6 @@ def get_array():
     tree_dir(path_dest, result)
     tree_empty(result)
 
-    result = [ i.encode('utf-8').decode('unicode_escape') for i in result]
-
     return result
 
 
@@ -92,7 +90,7 @@ def main():
         lines = [
             'import { defineConfig } from "vuepress/config";',
             "export default defineConfig(",
-            json.dumps(map_result),
+            json.dumps(map_result).encode('utf-8').decode('unicode_escape'),
             ");",
         ]
         print(lines)
