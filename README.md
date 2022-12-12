@@ -30,6 +30,7 @@ The action will auto deploy the vuepress project when you push your code.
 |  Parameter |  Description | Type | Required
 | :------------ | :------------ |:------------ |:------------ |
 | `ACCESS_TOKEN` | Personal access token or directly GITHUB_TOKEN of repository| `secrets`  |  **Yes** |
-| `TARGET_BRANCH` | The branch you want to deploy. e.g.:`gh-pages`.Default: **gh-pages** | `env` | **No** |
-| `BUILD_SCRIPT` | The script to build the vuepress project. e.g.: `yarn && yarn build` | `env` | **Yes** |
-| `BUILD_DIR` | The output of the build-script above. e.g.: `docs/.vuepress/dist/` | `env` | **Yes** |
+| `TARGET_BRANCH` | The branch you want to deploy. e.g.`gh-pages`.Default: **gh-pages** | `env` | **No** |
+| `BUILD_SCRIPT` | The script to build the vuepress project. e.g. `yarn install && yarn vuepress:build` | `env` | **Yes** |
+| `BUILD_DIR` | The output of the build-script above. e.g. `docs/.vuepress/dist/` | `env` | **Yes** |
+|`INFO_REPOSITORY`| Pass it to `translator.py` which is used to write the content of `sidebar` | `env`| **Yes**|
