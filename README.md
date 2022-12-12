@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - run: python translator.py ${{ github.repository }}
       
       - name: vuepress-deploy
         uses: sword4869/vuepress-deploy@main
@@ -21,6 +19,7 @@ jobs:
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: yarn install && yarn vuepress:build
           BUILD_DIR: docs/.vuepress/dist/
+          INFO_REPOSITORY: ${{ github.repository }}
 ```
 
 The action will auto deploy the vuepress project when you push your code. 
