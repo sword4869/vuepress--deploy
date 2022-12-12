@@ -81,7 +81,7 @@ def main():
     }
 
     map_result = {
-        "title": f"Hello {owner_repository}",
+        "title": 'Hello' + owner_repository,
         "base": base,
         "plugins": plugins,
         "themeConfig": themeConfig,
