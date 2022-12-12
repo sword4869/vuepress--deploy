@@ -2,30 +2,6 @@ import os
 import sys
 import json
 
-"""
-[
-    {
-        title: 'create',
-        children: [
-            ['/create/空项目.md','空项目.md'],
-            ['/create/deploy脚本.md','deploy脚本.md'],
-            ['/create/github action.md','github action.md'],
-            {
-                title: 'create',
-                children: [
-                    ['/create/空项目.md','空项目.md'],
-                    ['/create/deploy脚本.md','deploy脚本.md'],
-                    ['/create/github action.md','github action.md'],
-                    ['/create/图片格式.md','图片格式.md'],
-                ],
-            },
-        ],
-    },
-    ['theme.md','theme.md']
-]
-"""
-
-
 def tree_dir(dir, part_result, prefix=""):
     files = sorted(os.listdir(dir))
     file_lst = []
@@ -33,18 +9,18 @@ def tree_dir(dir, part_result, prefix=""):
     for file in files:
         file_path = os.path.join(dir, file)
         if os.path.isfile(file_path):
-            # 只允许显示md
+            # Only display md
             if file.endswith(".md") == False:
                 continue
             file_lst.append(file)
-        else:
-            # 我们不显示 docs/.vuepress文件夹
+        else: 
+            # We don't show folders docs/.vuepress
             if file == ".vuepress":
                 continue
             dir_lst.append(file)
 
     for file in file_lst:
-        # README.md 会报错，也不能显示
+        # README.md need special dealing
         if file.lower() == "readme.md":
             part_result.append([prefix + "/", "README"])
         else:
@@ -57,7 +33,7 @@ def tree_dir(dir, part_result, prefix=""):
 
 
 def tree_empty(part_result):
-    # 去掉空的chidren
+    # Remove empty chidren
     i = -1
     while i + 1 < len(part_result):
         i += 1
