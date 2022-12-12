@@ -2,7 +2,9 @@
 
 set -e
 
-echo ''
+# python
+echo "python version: $(python -V)"
+python /translator.py "$INFO_REPOSITORY"
 
 # env
 echo "node version: $(node -v)"
