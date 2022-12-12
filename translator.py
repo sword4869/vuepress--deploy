@@ -93,6 +93,7 @@ def main():
             json.dumps(map_result),
             ");",
         ]
+        print(lines)
         f.writelines(lines)
 
 main()
