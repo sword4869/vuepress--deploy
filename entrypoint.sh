@@ -3,6 +3,8 @@
 set -e
 
 # python3
+mkdir -p /docs/.vuepress
+echo "" > /docs/.vuepress/config.ts
 echo "python3 version: $(python3 -V)"
 echo "repository: $INFO_REPOSITORY"
 python3 /translator.py "$INFO_REPOSITORY"
