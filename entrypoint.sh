@@ -3,6 +3,10 @@
 set -e
 
 # python3
+echo "==> [coarse]show file directory architecture"
+ls
+echo "==> [fine]show file directory architecture"
+ls -a
 mkdir -p /docs/.vuepress
 echo "" > /docs/.vuepress/config.ts
 echo "python3 version: $(python3 -V)"
