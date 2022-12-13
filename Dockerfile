@@ -1,8 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM node:16
 
-RUN apt update && apt install python3
-
 COPY entrypoint.sh /entrypoint.sh
 COPY translator.py /translator.py
 
