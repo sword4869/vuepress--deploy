@@ -63,37 +63,25 @@ def main():
     print('translator.py path:', os.getcwd())
     owner_repository = sys.argv[1]
     base = "/" + owner_repository.split("/")[-1] + "/"
-    plugins = [
-        "vuepress-plugin-helper-live2d",
-        "vuepress-plugin-reading-progress",
-        "vuepress-plugin-code-copy",
-    ]
-    themeConfig = {
-        # if your docs are in a different repo from your main project:
-        "docsRepo": owner_repository,
-        # if your docs are in a specific branch (defaults to 'master'):
-        "docsBranch": "main",
-        # if your docs are not at the root of the repo:
+    
+    theme = {
+        'repo': owner_repository,
         "docsDir": "docs",
-        # defaults to false, set to true to enable
-        "editLinks": True,
-        # custom text for edit link. Defaults to "Edit this page"
-        "editLinkText": "Help us improve this page!",
         "sidebar": {"/": get_array()},
     }
 
     map_result = {
         "title": 'Hello ' + owner_repository,
         "base": base,
-        "plugins": plugins,
-        "themeConfig": themeConfig,
+        "theme": theme,
     }
     with open("./docs/.vuepress/config.ts", "w", encoding="utf-8") as f:
         lines = [
-            'import { defineConfig } from "vuepress/config";',
-            "export default defineConfig(",
+            'import { defineUserConfig } from "vuepress";',
+            'import { hopeTheme } from "vuepress-theme-hope";',
+            'export default defineUserConfig({',
             json.dumps(map_result).encode('utf-8').decode('unicode_escape'),
-            ");",
+            '});'
         ]
         print(lines)
         f.writelines(lines)
