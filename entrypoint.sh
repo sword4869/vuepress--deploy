@@ -8,18 +8,17 @@ echo "" > ./docs/.vuepress/config.ts
 echo "==> [fine]show file directory architecture"
 pwd
 ls -a
-echo "python3 version: $(python3 -V)"
-echo "repository: $INFO_REPOSITORY"
-python3 /translator.py "$INFO_REPOSITORY"
 
 # env
+echo "python3 version: $(python3 -V)"
 echo "node version: $(node -v)"
 echo "npm version: $(npm -v)"
 
 # Build vuepress project
-echo "==> Start building \n $BUILD_SCRIPT"
+echo "==> Start building"
+echo "$BUILD_SCRIPT"
 eval "$BUILD_SCRIPT"
-echo "Build success"
+echo "==> Build success"
 
 # Change directory to the dest
 echo "==> Changing directory to '$BUILD_DIR' ..."
