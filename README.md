@@ -23,7 +23,6 @@ jobs:
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: python3 translotor-v1.py ${{ github.repository }} && yarn install && yarn vuepress:build
           BUILD_DIR: docs/.vuepress/dist/
-          INFO_REPOSITORY: 
 ```
 
 vuepress-version:
