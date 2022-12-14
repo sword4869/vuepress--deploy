@@ -77,9 +77,9 @@ def main():
         lines = [
             'import { defineUserConfig } from "vuepress";',
             'import { hopeTheme } from "vuepress-theme-hope";',
-            'export default defineUserConfig({',
+            'export default defineUserConfig(',
             json.dumps(map_result).encode('utf-8').decode('unicode_escape'),
-            '});'
+            ');'
         ]
         print(lines)
         f.writelines(lines)
