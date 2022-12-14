@@ -2,7 +2,9 @@
 
 set -e
 
-# python3
+# prepare
+mv /translator-v1.py .
+mv /translator-v2.py .
 mkdir -p ./docs/.vuepress
 echo "" > ./docs/.vuepress/config.ts
 echo "==> [fine]show file directory architecture"
