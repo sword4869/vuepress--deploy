@@ -39,9 +39,7 @@ def tree_empty(part_result):
     while i + 1 < len(part_result):
         i += 1
         it = part_result[i]
-        if type(it) == type([]):
-            continue
-        elif type(it) == type({}):
+        if 'children' in it.keys():
             if len(it["children"]) == 0:
                 part_result.pop(i)
                 continue
