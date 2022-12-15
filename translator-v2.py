@@ -29,7 +29,7 @@ def tree_dir(dir, part_result, prefix=""):
 
     for subdir in dir_lst:
         subdir_path = os.path.join(dir, subdir)
-        part_result.append({"title": subdir, "children": []})
+        part_result.append({"text": subdir, "children": []})
         tree_dir(subdir_path, part_result[-1]["children"], prefix + "/" + subdir)
 
 
