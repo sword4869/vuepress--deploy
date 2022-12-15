@@ -5,11 +5,6 @@ set -e
 # prepare
 mv /translator-v1.py .
 mv /translator-v2.py .
-mkdir -p ./docs/.vuepress
-echo "" > ./docs/.vuepress/config.ts
-echo "==> [fine]show file directory architecture"
-pwd
-ls -a
 
 # env
 echo "python3 version: $(python3 -V)"

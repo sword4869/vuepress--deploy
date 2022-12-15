@@ -2,6 +2,11 @@ import os
 import sys
 import json
 
+def generate_config():
+    print('translator.py path:', os.getcwd())
+    os.makedirs('./docs/.vuepress', exist_ok=True)
+    
+
 def tree_dir(dir, part_result, prefix=""):
     files = sorted(os.listdir(dir))
     file_lst = []
@@ -59,7 +64,7 @@ def get_array():
 
 
 def main():
-    print('translator.py path:', os.getcwd())
+    generate_config()
     owner_repository = sys.argv[1]
     base = "/" + owner_repository.split("/")[-1] + "/"
     plugins = [

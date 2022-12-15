@@ -31,6 +31,33 @@ vuepress-version:
 
 - vuepress2: `BUILD_SCRIPT: python3 translotor-v2.py ${{ github.repository }} && yarn install && yarn vuepress:build`
 
+original build:
+
+```ts
+name: Build and Deploy
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: vuepress-deploy
+        uses: sword4869/vuepress-deploy@main
+        env:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_BRANCH: gh-pages
+          BUILD_SCRIPT: && yarn install && yarn vuepress:build
+          BUILD_DIR: docs/.vuepress/dist/
+```
+
+根据你显示创建的config.ts来编译, 而不是由translator-vx.py来生成其.
+
+
 ## Parameters
 
 |  Parameter |  Description | Type | Required
@@ -48,18 +75,27 @@ vuepress-version:
 sidebar: {
   "/": [
     ["/", "README"],
-    ["/theme.md", "theme.md"],
     {
-      title: "create",
+      title: "01-easy",
       children: [
-        ["/create/deploy\u811a\u672c.md", "deploy\u811a\u672c.md"],
-        ["/create/github action.md", "github action.md"],
-        [
-          "/create/\u56fe\u7247\u683c\u5f0f.md",
-          "\u56fe\u7247\u683c\u5f0f.md",
-        ],
-        ["/create/\u7a7a\u9879\u76ee.md", "\u7a7a\u9879\u76ee.md"],
-        { title: "fake", children: [["/create/fake/test.md", "test.md"]] },
+        {
+          title: "python_flask",
+          children: [["/01-easy/python_flask/", "README"]],
+        },
+        {
+          title: "python_print_hello",
+          children: [["/01-easy/python_print_hello/", "README"]],
+        },
+      ],
+    },
+    {
+      title: "concept",
+      children: [
+        ["/concept/container.md", "container.md"],
+        ["/concept/docker-compose.md", "docker-compose.md"],
+        ["/concept/image.md", "image.md"],
+        ["/concept/other.md", "other.md"],
+        ["/concept/the_dockerfile.md", "the_dockerfile.md"],
       ],
     },
   ],
@@ -72,7 +108,36 @@ for diretory: `{ title: "NAME", children: [ articles.. ] }`
 > v2:
 
 ```ts
-
+sidebar: {
+  "/": [
+    { text: "README", link: "/" },
+    {
+      text: "01-easy",
+      children: [
+        {
+          text: "python_flask",
+          children: [{ text: "README", link: "/01-easy/python_flask/" }],
+        },
+        {
+          text: "python_print_hello",
+          children: [
+            { text: "README", link: "/01-easy/python_print_hello/" },
+          ],
+        },
+      ],
+    },
+    {
+      text: "concept",
+      children: [
+        { text: "container.md", link: "/concept/container.md" },
+        { text: "docker-compose.md", link: "/concept/docker-compose.md" },
+        { text: "image.md", link: "/concept/image.md" },
+        { text: "other.md", link: "/concept/other.md" },
+        { text: "the_dockerfile.md", link: "/concept/the_dockerfile.md" },
+      ],
+    },
+  ],
+},
 ```
 
 for article: `{ text: "NAME", link: "LINK"}`
