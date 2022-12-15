@@ -68,17 +68,16 @@ def main():
         "sidebar": {"/": get_array()},
     }
 
-    map_result = {
-        "title": 'Hello ' + owner_repository,
-        "base": base,
-        "theme": 'hopeTheme(' + json.dumps(theme).encode('utf-8').decode('unicode_escape') + ')',
-    }
     lines = [
         'import { defineUserConfig } from "vuepress";',
         'import { hopeTheme } from "vuepress-theme-hope";',
-        'export default defineUserConfig(',
-        json.dumps(map_result).encode('utf-8').decode('unicode_escape'),
-        ');'
+        'export default defineUserConfig({',
+        f'title: "Hello {owner_repository}",',
+        f'base: "{base}",',
+        'theme: hopeTheme(',
+        json.dumps(theme).encode('utf-8').decode('unicode_escape'),
+        ')',
+        '});'
     ]
     try:
         with open("./docs/.vuepress/config.ts", "w", encoding="utf-8") as f:
