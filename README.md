@@ -2,7 +2,18 @@ The action will auto deploy the vuepress project when you push your code.
 
 My contribution is `translator-v?.py` which is used to extract the sidebar of config.ts.
 
-## Usage
+## Offline-Usage
+
+```python
+python ../vuepress-deploy/translator-v2.py "sword/learn_python"
+yarn install
+yarn vuepress:build
+```
+## Online-Usage
+```bash
+python ../vuepress-deploy/translator-v2.py "sword/learn_python"
+```
+### 自定生成配置的编译
 ```yml
 name: Build and Deploy
 on: 
@@ -21,17 +32,17 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_BRANCH: gh-pages
-          BUILD_SCRIPT: python3 translotor-v1.py ${{ github.repository }} && yarn install && yarn vuepress:build
+          BUILD_SCRIPT: python3 translator-v1.py ${{ github.repository }} && yarn install && yarn vuepress:build
           BUILD_DIR: docs/.vuepress/dist/
 ```
 
 vuepress-version:
           
-- vuepress1: `BUILD_SCRIPT: python3 translotor-v1.py ${{ github.repository }} && yarn install && yarn vuepress:build`
+- vuepress1: `BUILD_SCRIPT: python3 translator-v1.py ${{ github.repository }} && yarn install && yarn vuepress:build`
 
-- vuepress2: `BUILD_SCRIPT: python3 translotor-v2.py ${{ github.repository }} && yarn install && yarn vuepress:build`
+- vuepress2: `BUILD_SCRIPT: python3 translator-v2.py ${{ github.repository }} && yarn install && yarn vuepress:build`
 
-original build:
+### 定制配置的编译
 
 ```ts
 name: Build and Deploy
@@ -56,7 +67,6 @@ jobs:
 ```
 
 根据你显示创建的config.ts来编译, 而不是由translator-vx.py来生成其.
-
 
 ## Parameters
 

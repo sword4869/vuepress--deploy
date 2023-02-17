@@ -79,10 +79,12 @@ def main():
         f'title: "Hello {owner_repository}",',
         f'base: "{base}",',
         'theme: hopeTheme(',
-        json.dumps(theme).encode('utf-8').decode('unicode_escape'),
+        json.dumps(theme, indent=4).encode('utf-8').decode('unicode_escape'),
         ')',
         '});'
     ]
+
+    lines = [line + '\n' for line in lines]
     try:
         with open("./docs/.vuepress/config.ts", "w", encoding="utf-8") as f:
             print(lines)

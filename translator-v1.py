@@ -96,7 +96,7 @@ def main():
         lines = [
             'import { defineConfig } from "vuepress/config";',
             "export default defineConfig(",
-            json.dumps(map_result).encode('utf-8').decode('unicode_escape'),
+            json.dumps(map_result, indent=4).encode('utf-8').decode('unicode_escape'),
             ");",
         ]
         print(lines)
