@@ -8,6 +8,7 @@ My contribution is `translator-v?.py` which is used to extract the sidebar of co
 python ../vuepress-deploy/translator-v2.py "sword/learn_python"
 yarn install
 yarn vuepress:build
+yarn vuepress:dev
 ```
 ## Online-Usage
 ```bash
@@ -72,7 +73,7 @@ jobs:
 
 |  Parameter |  Description | Type | Required
 | :------------ | :------------ |:------------ |:------------ |
-| `ACCESS_TOKEN` | Personal access token or directly GITHUB_TOKEN of repository| `secrets`  |  **Yes** |
+| `ACCESS_TOKEN` | Personal access token or directly `GITHUB_TOKEN` of repository| `secrets`  |  **Yes** |
 | `TARGET_BRANCH` | The branch you want to deploy. e.g.`gh-pages`.Default: **gh-pages** | `env` | **No** |
 | `BUILD_SCRIPT` | The script to build the vuepress project. e.g. `yarn install && yarn vuepress:build` | `env` | **Yes** |
 | `BUILD_DIR` | The output of the build-script above. e.g. `docs/.vuepress/dist/` | `env` | **Yes** |
